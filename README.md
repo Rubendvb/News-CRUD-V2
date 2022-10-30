@@ -1,1 +1,1 @@
-# News---CRUS-v2
+# News CRUS v2
