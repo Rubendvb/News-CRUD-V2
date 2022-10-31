@@ -2,12 +2,11 @@ import { Schema, model } from "mongoose";
 
 const newsSchema = new Schema(
   {
-    _id: Schema.Types.ObjectId,
-
     title: {
       type: "string",
       require: true,
       trim: true,
+      unique: true,
     },
     subtitle: {
       type: "string",
@@ -35,4 +34,4 @@ const newsSchema = new Schema(
   }
 );
 
-export default model("Notícia", newsSchema);
+export default model("News", newsSchema);
