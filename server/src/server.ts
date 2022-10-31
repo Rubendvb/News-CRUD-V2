@@ -1,19 +1,6 @@
-import express from "express";
+import app from "./app";
+import "./data/dbConfig.ts";
 
-const app = express();
-
-app.get("/news", (req, res) => {
-  return res.json([]);
+app.listen(3333, function () {
+  console.log(`Server listening on port ${3333}`);
 });
-
-app.post("/news", (req, res) => {
-  return res.status(201).json([]);
-});
-
-app.get("/news/:id", (req, res) => {});
-
-app.delete("/news/:id", (req, res) => {});
-
-app.put("/news/:id", (req, res) => {});
-
-app.listen(3333);
