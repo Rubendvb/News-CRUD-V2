@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
 import { Props } from "../../@types/news";
+
 import * as newsService from "../../@types/NewsListService";
+
+import "./NewsItem.scss";
 
 export default function NewsItem({
   author,
@@ -29,7 +33,7 @@ export default function NewsItem({
 
   const getNewsParamsId = async (id: string) => {
     const res = await newsService.getNewsId(id);
-    console.log(res.data);
+    // console.log(res.data);
     const { author, content, createdAt, subtitle, title } = res.data;
     setNewsId({ author, content, createdAt, subtitle, title, _id });
   };
@@ -41,12 +45,14 @@ export default function NewsItem({
   }, []);
 
   return (
-    <div>
-      <h1>{newsId.title}</h1>
-      <h2>{newsId.subtitle}</h2>
-      <span>Por {newsId.author}</span>
-      <span>Por {newsId.createdAt}</span>
-      <p>Por {newsId.content}</p>
+    <div className="containerNewsItem">
+      <h1 className="containerNewsItem__title">{newsId.title}</h1>
+      <h2 className="containerNewsItem__subtitle">{newsId.subtitle}</h2>
+      <div className="containerNewsItem__info">
+        <span className="containerNewsItem__author">Por {newsId.author}</span>
+        <span className="containerNewsItem__createdAt">{newsId.createdAt}</span>
+      </div>
+      <p className="containerNewsItem__text">{newsId.content}</p>
     </div>
   );
 }

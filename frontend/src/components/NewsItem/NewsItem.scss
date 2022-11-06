@@ -1,0 +1,67 @@
+@use "../../scss/variaveis";
+
+.containerNewsItem {
+  width: 55.5rem;
+  margin: 4px auto;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-family: variaveis.$Font-Playfair;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.09375rem;
+    line-height: 4rem;
+    text-align: left;
+    word-spacing: 0px;
+    color: #111;
+    margin-bottom: 1.5rem;
+  }
+
+  &__subtitle {
+    font-family: variaveis.$Font-OpenSans;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    line-height: 28px;
+    text-align: left;
+    color: #555;
+    margin-bottom: 41px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    padding: 41px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 63px;
+  }
+
+  &__author {
+    font-family: variaveis.$Font-Playfair;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    line-height: 20px;
+    color: #555;
+    margin-bottom: 7px;
+  }
+
+  &__createdAt {
+    font-family: variaveis.$Font-Playfair;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    color: #555;
+  }
+
+  &__text {
+    width: 648px;
+    align-self: center;
+    margin-bottom: 35px;
+    font-family: variaveis.$Font-OpenSans;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    line-height: 32px;
+    color: #333;
+  }
+}
