@@ -1,7 +1,7 @@
 function App() {
   return (
     <div>
-      <p>Hello World!</p>
+      <p>Hello World! Feitiço eliminado </p>
     </div>
   );
 }
