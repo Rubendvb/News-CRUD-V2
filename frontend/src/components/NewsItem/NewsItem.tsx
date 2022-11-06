@@ -7,15 +7,7 @@ import * as newsService from "../../@types/NewsListService";
 
 import "./NewsItem.scss";
 
-export default function NewsItem({
-  author,
-  content,
-  createdAt,
-  editorial,
-  subtitle,
-  title,
-  _id,
-}: Props) {
+export default function NewsItem({ _id }: Props) {
   const initialState = {
     author: "",
     content: "",

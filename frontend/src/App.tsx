@@ -12,7 +12,7 @@ function App() {
   const loadNews = async () => {
     const res = await newsService.getNews();
     setNews(res.data);
-    console.log(res.data);
+    // console.log(res.data);
   };
 
   useEffect(() => {

@@ -1,9 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "./Navbar.scss";
 import iconValor from "../../assets/icon-valor.png";
 
 export default function Navbar() {
+  const params = useParams();
+
+  console.log(params);
+
   return (
     <nav className="navBar">
       <ul className="navBar__container">
@@ -20,7 +24,7 @@ export default function Navbar() {
         </li>
 
         <li>
-          <Link to={"/news/"}>Criar Notícia</Link>
+          <Link to={"/create-news"}>Criar Notícia</Link>
         </li>
       </ul>
     </nav>
