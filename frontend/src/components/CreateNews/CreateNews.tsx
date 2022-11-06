@@ -1,5 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Props } from "../../@types/news";
+
+import { toast } from "react-toastify";
 
 import * as newsService from "../../@types/NewsListService";
 
@@ -8,6 +11,8 @@ type InputChange = ChangeEvent<
 >;
 
 export default function CreateNews() {
+  let navigate = useNavigate();
+
   const initialState = {
     title: "",
     subtitle: "",
@@ -25,8 +30,13 @@ export default function CreateNews() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const res = await newsService.createNews(news);
-    console.log(res);
+    await newsService.createNews(news);
+
+    toast.success("Notícia criada");
+
+    navigate("/");
+
+    setNews(initialState);
   };
 
   return (
@@ -38,6 +48,7 @@ export default function CreateNews() {
             name="title"
             placeholder="Título"
             onChange={handleInputChange}
+            value={news.title}
             autoFocus
           />
           <input
@@ -45,11 +56,13 @@ export default function CreateNews() {
             name="subtitle"
             placeholder="Subtitulo"
             onChange={handleInputChange}
+            value={news.subtitle}
           />
           <textarea
             name="content"
             id="content"
             onChange={handleInputChange}
+            value={news.content}
             cols={150}
             rows={50}
             placeholder="Escreva seu texto aqui"
@@ -63,10 +76,16 @@ export default function CreateNews() {
             name="author"
             id="author"
             onChange={handleInputChange}
+            value={news.author}
           />
 
           <label htmlFor="editorial">Editoria</label>
-          <select name="editorial" id="editorial" onChange={handleInputChange}>
+          <select
+            name="editorial"
+            id="editorial"
+            onChange={handleInputChange}
+            value={news.editorial}
+          >
             <option value="">Selecione a editoria</option>
             <option value="brasil">Brasil</option>
             <option value="politica">Política</option>

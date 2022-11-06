@@ -7,11 +7,6 @@ interface NewsListProps {
 }
 
 export default function NewsList({ newsList }: NewsListProps) {
-  //  {
-  //    news.map((item) => {
-  //      return <NewsItem key={item._id} news={item} />;
-  //    });
-  //  }
   return (
     <Link to={`/news/${newsList._id}`} className="containerNewsList">
       <h1 className="containerNewsList__title">{newsList.title}</h1>

@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import "./scss/Main.scss";
 import "./scss/reset.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import App from "./App";
 import Navbar from "./components/Navbar/Navbar";
@@ -21,6 +23,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <Route path="/create-news" element={<CreateNews />} />
           <Route path="/news/:id" element={<NewsItem />} />
         </Routes>
+
+        <ToastContainer />
       </main>
     </BrowserRouter>
   </React.StrictMode>

@@ -7,7 +7,7 @@ import * as newsService from "../../@types/NewsListService";
 
 import "./NewsItem.scss";
 
-export default function NewsItem({ _id }: Props) {
+export default function NewsItem() {
   const initialState = {
     author: "",
     content: "",
@@ -27,7 +27,7 @@ export default function NewsItem({ _id }: Props) {
     const res = await newsService.getNewsId(id);
     // console.log(res.data);
     const { author, content, createdAt, subtitle, title } = res.data;
-    setNewsId({ author, content, createdAt, subtitle, title, _id });
+    setNewsId({ author, content, createdAt, subtitle, title });
   };
 
   useEffect(() => {
