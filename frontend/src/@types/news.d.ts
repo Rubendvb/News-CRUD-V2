@@ -1,10 +1,10 @@
 export interface Props {
-  author: string;
+  author?: string;
   content: string;
   createdAt: string;
-  editorial: string;
+  editorial?: string;
   subtitle: string;
   title: string;
-  updatedAt: string;
+  updatedAt?: string;
   _id: string;
 }

@@ -1,7 +1,6 @@
 .containerApp {
-  background-color: #4040f7;
-  min-width: 1200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  gap: 10px;
 }

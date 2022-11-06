@@ -20,7 +20,7 @@ export default function Navbar() {
         </li>
 
         <li>
-          <Link to={"/criar-noticia"}>Criar Notícia</Link>
+          <Link to={"/news/"}>Criar Notícia</Link>
         </li>
       </ul>
     </nav>

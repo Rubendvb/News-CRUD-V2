@@ -1,4 +1,7 @@
+@use "../../scss/variaveis";
+
 .navBar {
+  font-family: variaveis.$Font-OpenSans;
   background-color: #fff;
   display: flex;
   flex-direction: row;

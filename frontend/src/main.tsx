@@ -2,23 +2,24 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import "./scss/App.scss";
+import "./scss/Main.scss";
 import "./scss/reset.css";
 
 import App from "./App";
 import Navbar from "./components/Navbar/Navbar";
-import NewsList from "./components/NewsList/NewsList";
+import NewsItem from "./components/NewsItem/NewsItem";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <Navbar />
 
-      <div className="containerApp">
+      <main className="containerMain">
         <Routes>
           <Route path="/" element={<App />} />
+          <Route path="/news/:id" element={<NewsItem />} />
         </Routes>
-      </div>
+      </main>
     </BrowserRouter>
   </React.StrictMode>
 );
