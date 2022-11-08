@@ -3,6 +3,15 @@ import News from "../models/News";
 
 export const createNews: RequestHandler = async (req, res) => {
   const newsFound = await News.findOne({ title: req.body.title });
+  const { title, subtitle, content, author, editorial, image } = req.body;
+  const newsAndImage = {
+    title: title,
+    subtitle: subtitle,
+    content: content,
+    author: author,
+    editorial: editorial,
+    image: req.file?.path,
+  };
 
   if (newsFound) {
     return res
@@ -10,7 +19,9 @@ export const createNews: RequestHandler = async (req, res) => {
       .json({ message: "Já existe uma notícia com este título!" });
   }
 
-  const news = new News(req.body);
+  console.log(newsAndImage);
+
+  const news = new News(newsAndImage);
   const saveNews = await news.save();
   res.json(saveNews);
 };
