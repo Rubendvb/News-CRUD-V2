@@ -1,4 +1,5 @@
 import { Router } from "express";
+
 import * as newsController from "../controllers/news.controller";
 
 const router = Router();

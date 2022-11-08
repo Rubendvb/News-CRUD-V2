@@ -41,7 +41,7 @@ export default function CreateNews() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div>
           <input
             type="text"
@@ -97,6 +97,8 @@ export default function CreateNews() {
             <option value="opiniao">Opinião</option>
           </select>
         </div>
+
+        <input type="file" name="image" id="image" />
 
         <button>Criar notícia</button>
       </form>

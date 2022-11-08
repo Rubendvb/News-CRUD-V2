@@ -1,31 +1,28 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Document } from "mongoose";
 
 const newsSchema = new Schema(
   {
     title: {
-      type: "string",
+      type: String,
       require: true,
       trim: true,
       unique: true,
     },
     subtitle: {
-      type: "string",
+      type: String,
       require: true,
       trim: true,
     },
     content: {
-      type: "string",
+      type: String,
       require: true,
       trim: true,
     },
     author: {
-      type: "string",
+      type: String,
       trim: true,
     },
-    image: {
-      data: Buffer,
-      contentType: String,
-    },
+    image: String,
     editorial: String,
   },
   {
@@ -34,4 +31,13 @@ const newsSchema = new Schema(
   }
 );
 
-export default model("News", newsSchema);
+interface INews extends Document {
+  title: string;
+  subtitle: string;
+  content: string;
+  author: string;
+  image: string;
+  editorial: string;
+}
+
+export default model<INews>("News", newsSchema);

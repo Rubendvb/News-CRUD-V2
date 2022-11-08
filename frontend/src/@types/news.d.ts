@@ -6,5 +6,9 @@ export interface Props {
   subtitle: string;
   title: string;
   updatedAt?: string;
+  image?: {
+    data: Buffer;
+    contentType: String;
+  };
   _id?: string;
 }

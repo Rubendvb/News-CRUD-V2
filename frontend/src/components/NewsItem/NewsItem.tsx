@@ -14,6 +14,7 @@ export default function NewsItem() {
     createdAt: "",
     subtitle: "",
     title: "",
+    image: "",
     _id: "",
   };
 
@@ -26,8 +27,8 @@ export default function NewsItem() {
   const getNewsParamsId = async (id: string) => {
     const res = await newsService.getNewsId(id);
     // console.log(res.data);
-    const { author, content, createdAt, subtitle, title } = res.data;
-    setNewsId({ author, content, createdAt, subtitle, title });
+    const { author, content, createdAt, subtitle, title, image } = res.data;
+    setNewsId({ author, content, createdAt, subtitle, title, image });
   };
 
   useEffect(() => {
@@ -45,6 +46,8 @@ export default function NewsItem() {
         <span className="containerNewsItem__createdAt">{newsId.createdAt}</span>
       </div>
       <p className="containerNewsItem__text">{newsId.content}</p>
+
+      <img src={newsId.image} alt="" />
     </div>
   );
 }
