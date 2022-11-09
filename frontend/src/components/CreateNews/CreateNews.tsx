@@ -19,9 +19,12 @@ export default function CreateNews() {
     author: "",
     content: "",
     editorial: "",
+    image: "",
   };
 
   const [news, setNews] = useState<Props>(initialState);
+
+  console.log(news);
 
   const handleInputChange = (e: InputChange) => {
     setNews({ ...news, [e.target.name]: e.target.value });
@@ -41,7 +44,12 @@ export default function CreateNews() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <form
+        onSubmit={handleSubmit}
+        action="/news"
+        method="POST"
+        encType="multipart/form-data"
+      >
         <div>
           <input
             type="text"
@@ -86,7 +94,7 @@ export default function CreateNews() {
             onChange={handleInputChange}
             value={news.editorial}
           >
-            <option value="">Selecione a editoria</option>
+            <option value="sem-editoria">Selecione a editoria</option>
             <option value="brasil">Brasil</option>
             <option value="politica">Política</option>
             <option value="financas">Finanças</option>
@@ -98,7 +106,13 @@ export default function CreateNews() {
           </select>
         </div>
 
-        <input type="file" name="image" id="image" />
+        <label htmlFor="image">Inserir a url da imagem</label>
+        <input
+          type="url"
+          name="image"
+          id="image"
+          onChange={handleInputChange}
+        />
 
         <button>Criar notícia</button>
       </form>

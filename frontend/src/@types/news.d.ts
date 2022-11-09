@@ -1,14 +1,11 @@
 export interface Props {
   author?: string;
   content: string;
-  createdAt?: string;
+  createdAt: string;
   editorial?: string;
   subtitle: string;
   title: string;
   updatedAt?: string;
-  image?: {
-    data: Buffer;
-    contentType: String;
-  };
+  image?: string;
   _id?: string;
 }

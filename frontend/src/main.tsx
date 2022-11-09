@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <main className="containerMain">
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/create-news" element={<CreateNews />} />
+          <Route path="/news" element={<CreateNews />} />
           <Route path="/news/:id" element={<NewsItem />} />
         </Routes>
 

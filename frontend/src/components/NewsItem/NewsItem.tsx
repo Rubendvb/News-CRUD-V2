@@ -7,11 +7,14 @@ import * as newsService from "../../@types/NewsListService";
 
 import "./NewsItem.scss";
 
+import moment from "moment";
+
 export default function NewsItem() {
   const initialState = {
     author: "",
     content: "",
     createdAt: "",
+    updatedAt: "",
     subtitle: "",
     title: "",
     image: "",
@@ -26,9 +29,32 @@ export default function NewsItem() {
 
   const getNewsParamsId = async (id: string) => {
     const res = await newsService.getNewsId(id);
-    // console.log(res.data);
-    const { author, content, createdAt, subtitle, title, image } = res.data;
-    setNewsId({ author, content, createdAt, subtitle, title, image });
+    const { author, content, createdAt, subtitle, title, image, updatedAt } =
+      res.data;
+    setNewsId({
+      author,
+      content,
+      createdAt,
+      subtitle,
+      title,
+      image,
+      updatedAt,
+    });
+
+    console.log("linha 32 - NewsItem", moment(createdAt).format("L"));
+
+    console.log(
+      "linha 41 - NewsItem",
+      moment(createdAt).startOf("year").fromNow()
+    );
+  };
+
+  const formatDate = (date: string, update: string) => {
+    moment.locale("pt-br");
+
+    return `${moment(date).format("L")} - Atualizado há ${moment(update)
+      .startOf("minute")
+      .fromNow(true)}`;
   };
 
   useEffect(() => {
@@ -43,7 +69,9 @@ export default function NewsItem() {
       <h2 className="containerNewsItem__subtitle">{newsId.subtitle}</h2>
       <div className="containerNewsItem__info">
         <span className="containerNewsItem__author">Por {newsId.author}</span>
-        <span className="containerNewsItem__createdAt">{newsId.createdAt}</span>
+        <span className="containerNewsItem__createdAt">
+          {`${formatDate(newsId.createdAt, newsId.updatedAt)}`}
+        </span>
       </div>
       <p className="containerNewsItem__text">{newsId.content}</p>
 
