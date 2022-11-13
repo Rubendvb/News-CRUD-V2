@@ -14,12 +14,14 @@ export default function CreateNews() {
   let navigate = useNavigate();
 
   const initialState = {
-    title: "",
-    subtitle: "",
     author: "",
     content: "",
+    createdAt: "",
     editorial: "",
+    subtitle: "",
+    title: "",
     image: "",
+    updatedAt: "",
   };
 
   const [news, setNews] = useState<Props>(initialState);

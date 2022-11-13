@@ -22,7 +22,7 @@ function App() {
   let newsEmphasis = news
     .map((itemList) => {
       return (
-        <div className="news">
+        <div className="news" key={itemList._id}>
           <NewsList key={itemList._id} newsList={itemList} />
         </div>
       );
