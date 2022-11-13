@@ -9,8 +9,22 @@ interface NewsListProps {
 export default function NewsList({ newsList }: NewsListProps) {
   return (
     <Link to={`/news/${newsList._id}`} className="containerNewsList">
-      <h1 className="containerNewsList__title">{newsList.title}</h1>
-      <h2 className="containerNewsList__subtitle">{newsList.subtitle}</h2>
+      {newsList.image ? (
+        <picture className="containerNewsList__containerImg">
+          <img
+            className="containerNewsList__containerImg__img"
+            src={newsList.image}
+            alt=""
+          />
+        </picture>
+      ) : (
+        ""
+      )}
+
+      <div>
+        <h1 className="containerNewsList__title">{newsList.title}</h1>
+        <h2 className="containerNewsList__subtitle">{newsList.subtitle}</h2>
+      </div>
     </Link>
   );
 }

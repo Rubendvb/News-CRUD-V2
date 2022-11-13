@@ -22,7 +22,7 @@ function App() {
   let newsEmphasis = news
     .map((itemList) => {
       return (
-        <div className="news" key={itemList._id}>
+        <div className="containerEmphasis__news" key={itemList._id}>
           <NewsList key={itemList._id} newsList={itemList} />
         </div>
       );
@@ -31,9 +31,13 @@ function App() {
 
   let newsList = news
     .map((item) => {
-      return <NewsList key={item._id} newsList={item} />;
+      return (
+        <div>
+          <NewsList key={item._id} newsList={item} />
+        </div>
+      );
     })
-    .slice(3, -1);
+    .slice(3);
 
   return (
     <>

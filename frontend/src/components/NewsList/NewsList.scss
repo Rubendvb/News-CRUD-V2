@@ -3,8 +3,18 @@
 .containerNewsList {
   background-color: #fff;
   margin-bottom: 2rem;
-
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  padding: 2rem 0;
+
+  &__containerImg {
+    &__img {
+      width: 100%;
+      transition: all 0.8s;
+    }
+  }
 
   &__title {
     font-family: variaveis.$Font-Playfair;
