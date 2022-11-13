@@ -1,5 +1,5 @@
-import { ChangeEvent, FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Props } from "../../@types/news";
 
 import { toast } from "react-toastify";
@@ -12,6 +12,7 @@ type InputChange = ChangeEvent<
 
 export default function CreateNews() {
   let navigate = useNavigate();
+  let params = useParams();
 
   const initialState = {
     author: "",
@@ -26,8 +27,6 @@ export default function CreateNews() {
 
   const [news, setNews] = useState<Props>(initialState);
 
-  console.log(news);
-
   const handleInputChange = (e: InputChange) => {
     setNews({ ...news, [e.target.name]: e.target.value });
   };
@@ -35,14 +34,34 @@ export default function CreateNews() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await newsService.createNews(news);
+    if (!params.id) {
+      await newsService.createNews(news);
 
-    toast.success("Notícia criada");
+      toast.success("Notícia criada");
+
+      setNews(initialState);
+    } else {
+      await newsService.updateNewsId(params.id, news);
+
+      toast.success("Notícia atualizada");
+    }
 
     navigate("/");
-
-    setNews(initialState);
   };
+
+  const getNews = async (id: string) => {
+    const res = await newsService.getNewsId(id);
+
+    const { title, subtitle, content, author, editorial, image } = res.data;
+
+    setNews({ title, subtitle, content, author, editorial, image });
+  };
+
+  useEffect(() => {
+    if (params.id) {
+      getNews(params.id);
+    }
+  }, []);
 
   return (
     <div>
@@ -116,7 +135,11 @@ export default function CreateNews() {
           onChange={handleInputChange}
         />
 
-        <button>Criar notícia</button>
+        {params.id ? (
+          <button>Atualizar</button>
+        ) : (
+          <button>Criar notícia</button>
+        )}
       </form>
     </div>
   );

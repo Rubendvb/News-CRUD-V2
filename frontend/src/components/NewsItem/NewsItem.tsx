@@ -40,13 +40,6 @@ export default function NewsItem() {
       image,
       updatedAt,
     });
-
-    console.log("linha 32 - NewsItem", moment(createdAt).format("L"));
-
-    console.log(
-      "linha 41 - NewsItem",
-      moment(createdAt).startOf("year").fromNow()
-    );
   };
 
   const formatDate = (date: string, update: string) => {
