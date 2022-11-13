@@ -5,7 +5,7 @@ export interface Props {
   editorial?: string;
   subtitle: string;
   title: string;
-  updatedAt?: string;
+  updatedAt: string;
   image?: string;
   _id?: string;
 }

@@ -19,12 +19,27 @@ function App() {
     loadNews();
   }, []);
 
+  let newsEmphasis = news
+    .map((itemList) => {
+      return (
+        <div className="news">
+          <NewsList key={itemList._id} newsList={itemList} />
+        </div>
+      );
+    })
+    .slice(0, 3);
+
+  let newsList = news
+    .map((item) => {
+      return <NewsList key={item._id} newsList={item} />;
+    })
+    .slice(3, -1);
+
   return (
-    <div className="containerApp">
-      {news.map((itemList) => {
-        return <NewsList key={itemList._id} newsList={itemList} />;
-      })}
-    </div>
+    <>
+      <div className="containerEmphasis">{newsEmphasis}</div>
+      <div className="containerApp">{newsList}</div>
+    </>
   );
 }
 
