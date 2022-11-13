@@ -42,7 +42,7 @@ export default function Navbar() {
               <Link to={"/news"}>Criar notícia</Link>
             </li>
             <li onClick={activateMenu}>
-              <Link to={"/news/update"}>Editar notícia</Link>
+              <Link to={"/news/update"}>Editar/Deletar notícia</Link>
             </li>
           </ul>
         </nav>

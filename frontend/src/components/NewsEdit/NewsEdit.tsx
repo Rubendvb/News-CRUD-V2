@@ -12,7 +12,11 @@ export default function NewsEdit() {
   const loadNews = async () => {
     const res = await newsService.getNews();
     setNews(res.data);
-    // console.log(res.data);
+  };
+
+  const newsDelete = async (id: string) => {
+    await newsService.deleteNewsId(id);
+    loadNews();
   };
 
   useEffect(() => {
@@ -28,7 +32,9 @@ export default function NewsEdit() {
             <button onClick={() => navigate(`/news/update/${item._id}`)}>
               Editar
             </button>
-            <button>Deletar</button>
+            <button onClick={() => item._id && newsDelete(item._id)}>
+              Deletar
+            </button>
           </div>
         );
       })}

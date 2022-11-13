@@ -18,3 +18,7 @@ export const getNewsId = async (id: string) => {
 export const updateNewsId = async (id: string, news: Props) => {
   return await axios.put<Props>(`${API}/news/${id}`, news);
 };
+
+export const deleteNewsId = async (id: string) => {
+  return await axios.delete<Props>(`${API}/news/${id}`);
+};

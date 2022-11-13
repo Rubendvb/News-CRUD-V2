@@ -3,7 +3,7 @@ export interface Props {
   content: string;
   createdAt?: string;
   editorial?: string;
-  subtitle: string;
+  subtitle?: string;
   title: string;
   updatedAt?: string;
   image?: string;
