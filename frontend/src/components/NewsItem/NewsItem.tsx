@@ -42,7 +42,7 @@ export default function NewsItem() {
     });
   };
 
-  const formatDate = (date: string, update: string) => {
+  const formatDate = (date: any, update: any) => {
     moment.locale("pt-br");
 
     return `${moment(date).format("L")} - Atualizado há ${moment(update)
@@ -68,7 +68,7 @@ export default function NewsItem() {
       </div>
       <p className="containerNewsItem__text">{newsId.content}</p>
 
-      <img src={newsId.image} alt="" />
+      <img className="containerNewsItem__img" src={newsId.image} alt="" />
     </div>
   );
 }
