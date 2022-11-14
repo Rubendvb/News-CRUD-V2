@@ -39,4 +39,4 @@ CRUD News é um projeto de criação/edição/atualização e eliminação de no
 
 ## Demonstração
 
-![Demo]("./frontend/public/demo/demo-crud-news.mp4")
+![Demo]('./frontend/public/demo/../../../../frontend/public/demo/demo-crud-news.gif)
