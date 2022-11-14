@@ -2,41 +2,81 @@
 
 ## Table of Contents
 
-- [Sobre o projeto](#about)
-- [Comece a usar](#getting_started)
-- [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
+- [CRUD News](#crud-news)
+  - [Table of Contents](#table-of-contents)
+  - [Sobre o projeto <a name = "sobre"></a>](#sobre-o-projeto-)
+  - [Rodando localmente <a name = "run"></a>](#rodando-localmente-)
+  - [Funcionalidades <a name = "funcionalidades"></a>](#funcionalidades-)
+  - [Stack utilizada <a name= "stack"></a>](#stack-utilizada-)
+  - [Demonstração <a name= "demo"></a>](#demonstração-)
 
-## Sobre o projeto <a name = "about"></a>
+## Sobre o projeto <a name = "sobre"></a>
 
 CRUD News é um projeto de criação/edição/atualização e eliminação de notícias
 
-## Comece a usar <a name = "getting_started"></a>
+## Rodando localmente <a name = "run"></a>
 
-1. Clonar o repositório na sua máquina
+Clone o projeto
 
-   `git clone https://github.com/Rubendvb/News-CRUD-V2.git`
+```bash
+  git clone https://github.com/Rubendvb/News-CRUD-V2.git
+```
 
-2. Entrar na pasta
+Entre no diretório do projeto
 
-   `cd News-CRUD-V2`
+```bash
+  cd News-CRUD-V2
+```
 
-3. Rodar back-end
+Entre na pasta frontend
 
-   `cd server`
+```bash
+  cd frontend
+```
 
-   `npm i`
+Instale as dependências
 
-   `npm run dev`
+```bash
+  npm install
+```
 
-4. Abrir outro terminal na pasta do projeto e entrar na pasta frontend e rodar
+Inicie o servidor
 
-   `cd frontend`
+```bash
+  npm run dev
+```
 
-   `npm i`
+Abrir outro terminal no diretório do projeto e entrar na pasta frontend e rodar
 
-   `npm run dev`
+```bash
+  cd frontend
+```
 
-## Demonstração
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  npm run dev
+```
+
+## Funcionalidades <a name = "funcionalidades"></a>
+
+- Criação de notícias
+- Preview em tempo real de todas as notícias criadas
+- Menu para edição e eliminação de notícias
+- Preview de notícias individualmente
+
+## Stack utilizada <a name= "stack"></a>
+
+**Front-end:** React, TypeScript, SASS
+
+**Back-end:** Node, Express, MongoDB
+
+## Demonstração <a name= "demo"></a>
 
 ![Demo]('./frontend/public/demo/../../../../frontend/public/demo/demo-crud-news.gif)
