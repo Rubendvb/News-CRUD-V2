@@ -127,6 +127,7 @@ export default function CreateNews() {
                 name="image"
                 id="image"
                 onChange={handleInputChange}
+                value={news.image}
                 required
               />
               <label htmlFor="image">Inserir url da imagem</label>

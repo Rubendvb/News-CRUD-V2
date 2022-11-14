@@ -3,6 +3,7 @@ import * as newsService from "../../@types/NewsListService";
 import { useEffect, useState } from "react";
 import { Props } from "../../@types/news";
 import { useNavigate } from "react-router-dom";
+import "./NewsEdit.scss";
 
 export default function NewsEdit() {
   let navigate = useNavigate();
@@ -27,14 +28,17 @@ export default function NewsEdit() {
     <>
       {news.map((item) => {
         return (
-          <div key={item._id}>
+          <div key={item._id} className="containerNewsEdit">
             <NewsList newsList={item} />
-            <button onClick={() => navigate(`/news/update/${item._id}`)}>
-              Editar
-            </button>
-            <button onClick={() => item._id && newsDelete(item._id)}>
-              Deletar
-            </button>
+
+            <div>
+              <button onClick={() => navigate(`/news/update/${item._id}`)}>
+                Editar
+              </button>
+              <button onClick={() => item._id && newsDelete(item._id)}>
+                Deletar
+              </button>
+            </div>
           </div>
         );
       })}
