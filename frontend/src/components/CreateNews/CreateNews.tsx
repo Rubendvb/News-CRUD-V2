@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 
 import * as newsService from "../../@types/NewsListService";
 
+import "./CreateNews.scss";
+
 type InputChange = ChangeEvent<
   HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
 >;
@@ -64,83 +66,100 @@ export default function CreateNews() {
   }, []);
 
   return (
-    <div>
+    <>
       <form
         onSubmit={handleSubmit}
         action="/news"
         method="POST"
         encType="multipart/form-data"
       >
-        <div>
-          <input
-            type="text"
-            name="title"
-            placeholder="Título"
-            onChange={handleInputChange}
-            value={news.title}
-            autoFocus
-          />
-          <input
-            type="text"
-            name="subtitle"
-            placeholder="Subtitulo"
-            onChange={handleInputChange}
-            value={news.subtitle}
-          />
-          <textarea
-            name="content"
-            id="content"
-            onChange={handleInputChange}
-            value={news.content}
-            cols={150}
-            rows={50}
-            placeholder="Escreva seu texto aqui"
-          ></textarea>
+        <div className="containerForm">
+          <div className="containerForm__sectionOne">
+            <div className="row">
+              <input
+                type="text"
+                name="title"
+                onChange={handleInputChange}
+                value={news.title}
+                autoFocus
+                required
+              />
+              <label htmlFor="title">Título</label>
+            </div>
+
+            <div className="row">
+              <input
+                type="text"
+                name="subtitle"
+                onChange={handleInputChange}
+                value={news.subtitle}
+                required
+              />
+              <label htmlFor="subtitle">Subtítulo</label>
+            </div>
+            <textarea
+              className="containerForm__sectionOne-textarea"
+              name="content"
+              id="content"
+              onChange={handleInputChange}
+              value={news.content}
+              placeholder="Escreva seu texto aqui"
+              required
+            ></textarea>
+          </div>
+
+          <div className="containerForm__sectionTwo">
+            <div className="row">
+              <input
+                type="text"
+                name="author"
+                id="author"
+                onChange={handleInputChange}
+                value={news.author}
+                required
+              />
+              <label htmlFor="author">Autor(a)</label>
+            </div>
+
+            <div className="row">
+              <input
+                type="url"
+                name="image"
+                id="image"
+                onChange={handleInputChange}
+                required
+              />
+              <label htmlFor="image">Inserir url da imagem</label>
+            </div>
+
+            <select
+              className="containerForm__sectionTwo-select"
+              name="editorial"
+              id="editorial"
+              onChange={handleInputChange}
+              value={news.editorial}
+            >
+              <option value="sem-editoria">Selecione a editoria</option>
+              <option value="brasil">Brasil</option>
+              <option value="politica">Política</option>
+              <option value="financas">Finanças</option>
+              <option value="empresas">Empresas</option>
+              <option value="mundo">Mundo</option>
+              <option value="agronegocios">Agronegócios</option>
+              <option value="legislacao">Legislação</option>
+              <option value="opiniao">Opinião</option>
+            </select>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="author">Autor</label>
-          <input
-            type="text"
-            name="author"
-            id="author"
-            onChange={handleInputChange}
-            value={news.author}
-          />
-
-          <label htmlFor="editorial">Editoria</label>
-          <select
-            name="editorial"
-            id="editorial"
-            onChange={handleInputChange}
-            value={news.editorial}
-          >
-            <option value="sem-editoria">Selecione a editoria</option>
-            <option value="brasil">Brasil</option>
-            <option value="politica">Política</option>
-            <option value="financas">Finanças</option>
-            <option value="empresas">Empresas</option>
-            <option value="mundo">Mundo</option>
-            <option value="agronegocios">Agronegócios</option>
-            <option value="legislacao">Legislação</option>
-            <option value="opiniao">Opinião</option>
-          </select>
+        <div className="containerButton">
+          {params.id ? (
+            <button>Atualizar</button>
+          ) : (
+            <button>Criar notícia</button>
+          )}
         </div>
-
-        <label htmlFor="image">Inserir a url da imagem</label>
-        <input
-          type="url"
-          name="image"
-          id="image"
-          onChange={handleInputChange}
-        />
-
-        {params.id ? (
-          <button>Atualizar</button>
-        ) : (
-          <button>Criar notícia</button>
-        )}
       </form>
-    </div>
+    </>
   );
 }

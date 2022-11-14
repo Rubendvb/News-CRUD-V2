@@ -11,11 +11,6 @@
     padding: 0;
     margin-bottom: 0;
 
-    & > .containerNewsList__containerImg > img:hover {
-      transform: scale(1.2);
-      transition: all 0.8s;
-    }
-
     & > div {
       position: absolute;
       bottom: 20px;
@@ -50,6 +45,13 @@
   &__news {
     position: relative;
     overflow: hidden;
+
+    &:has(.containerNewsList > div > h1) {
+      .containerNewsList__containerImg__img:hover {
+        transform: scale(1.2);
+        transition: all 0.8s;
+      }
+    }
   }
 
   &__news:first-child {
