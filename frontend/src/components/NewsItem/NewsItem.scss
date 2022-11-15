@@ -2,7 +2,7 @@
 
 .containerNewsItem {
   width: 55.5rem;
-  margin: 4px auto;
+  margin: 1rem auto 6rem;
   display: flex;
   flex-direction: column;
 
@@ -25,7 +25,6 @@
     line-height: 28px;
     text-align: left;
     color: #555;
-    margin-bottom: 41px;
   }
 
   &__info {
@@ -33,7 +32,7 @@
     flex-direction: column;
     padding: 41px 0;
     border-bottom: 1px solid #ccc;
-    margin-bottom: 63px;
+    margin-bottom: 3.125rem;
   }
 
   &__author {

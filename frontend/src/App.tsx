@@ -32,7 +32,7 @@ function App() {
   let newsList = news
     .map((item) => {
       return (
-        <div>
+        <div key={item._id}>
           <NewsList key={item._id} newsList={item} />
         </div>
       );
