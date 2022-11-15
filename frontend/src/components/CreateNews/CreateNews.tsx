@@ -155,7 +155,7 @@ export default function CreateNews() {
 
         <div className="containerButton">
           {params.id ? (
-            <button>Atualizar de teste</button>
+            <button>Atualizar</button>
           ) : (
             <button>Criar notícia</button>
           )}

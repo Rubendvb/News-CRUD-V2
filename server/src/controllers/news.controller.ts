@@ -20,7 +20,7 @@ export const createNews: RequestHandler = async (req, res) => {
 
 export const getNews: RequestHandler = async (req, res) => {
   try {
-    const news = await News.find().sort({ createdAt: -1 }); // Order by created
+    const news = await News.find().sort({ updatedAt: -1 }); // Order by created
     return res.json(news);
   } catch (error) {
     res.json(error);
